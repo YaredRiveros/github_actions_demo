@@ -44,7 +44,9 @@ jobs:
       - name: Run tests with coverage gate
         run: |
           export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-          pytest -q --junitxml=report.xml             --cov --cov-report=term-missing --cov-report=xml             --cov-fail-under=80
+          pytest -q --junitxml=report.xml \
+            --cov --cov-report=term-missing --cov-report=xml \
+            --cov-fail-under=80
 
       - name: Upload test and coverage reports
         if: always()
